@@ -6,119 +6,130 @@ export default function Home() {
   return (
     <>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Tri Ubaya, back to top">
-          <span>{profile.initials}</span>
-          <strong>{profile.name}</strong>
-        </a>
-
-        <nav aria-label="Main navigation">
-          {profile.navigation.map((item) => (
-            <a href={item.href} key={item.href}>{item.label}</a>
-          ))}
-        </nav>
-
-        <a className="header-contact" href={`mailto:${profile.email}`}>Let&apos;s talk</a>
+        <div className="header-inner">
+          <a className="site-name" href="#top">{profile.name}</a>
+          <nav aria-label="Main navigation">
+            {profile.navigation.map((item) => (
+              <a href={item.href} key={item.href}>{item.label}</a>
+            ))}
+          </nav>
+        </div>
       </header>
 
       <main id="top" className="page-shell">
         <aside className="profile-column" aria-label="Profile summary">
-          <div className="portrait-wrap">
-            <img
-              className="portrait"
-              src={profile.avatarUrl}
-              alt={`Portrait of ${profile.name}`}
-              width="480"
-              height="480"
-            />
-            <span className="portrait-mark" aria-hidden="true">{profile.initials}</span>
-          </div>
-
-          <p className="eyebrow">Personal portfolio</p>
+          <img
+            className="portrait"
+            src={profile.avatarUrl}
+            alt={`Portrait of ${profile.name}`}
+            width="240"
+            height="240"
+          />
           <h1>{profile.name}</h1>
           <p className="role">{profile.role}</p>
+          <p className="affiliation">{profile.affiliation}</p>
 
-          <dl className="profile-details">
-            <div><dt>Based in</dt><dd>{profile.location}</dd></div>
-            <div><dt>Status</dt><dd className="status">{profile.availability}</dd></div>
-          </dl>
+          <ul className="profile-meta">
+            <li><span aria-hidden="true">⌖</span>{profile.location}</li>
+            <li><span aria-hidden="true">✉</span><a href={`mailto:${profile.email}`}>{profile.email}</a></li>
+          </ul>
 
-          <div className="social-links" aria-label="Social links">
+          <ul className="social-links" aria-label="Profile links">
             {profile.links.map((link) => (
-              <a
-                href={link.href}
-                key={link.label}
-                target={isExternal(link.href) ? "_blank" : undefined}
-                rel={isExternal(link.href) ? "noreferrer" : undefined}
-              >
-                {link.label}<span aria-hidden="true">↗</span>
-              </a>
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  target={isExternal(link.href) ? "_blank" : undefined}
+                  rel={isExternal(link.href) ? "noreferrer" : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </aside>
 
         <div className="content-column">
-          <section className="hero" aria-labelledby="intro-heading">
-            <p className="section-label">Hello — welcome</p>
-            <h2 id="intro-heading">{profile.intro}</h2>
-            <a className="text-link" href="#about">Read my story <span aria-hidden="true">↓</span></a>
+          <section id="about" className="content-section intro-section" aria-labelledby="about-heading">
+            <h2 id="about-heading">About Me</h2>
+            <p className="lead">{profile.introduction}</p>
+            {profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+
+            <h3>Research & Professional Interests</h3>
+            <ul className="interest-list">
+              {profile.interests.map((interest) => <li key={interest}>{interest}</li>)}
+            </ul>
           </section>
 
-          <section id="about" className="section section-about" aria-labelledby="about-heading">
-            <div className="section-heading">
-              <p className="section-index">01</p>
-              <h2 id="about-heading">About me</h2>
-            </div>
-            <div className="prose">
-              {profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            </div>
+          <section id="publications" className="content-section" aria-labelledby="publications-heading">
+            <h2 id="publications-heading">Selected Publications</h2>
+            <p className="section-intro">Selected journal articles, conference papers, and other research outputs.</p>
+            <ol className="publication-list">
+              {profile.publications.map((publication) => (
+                <li key={`${publication.year}-${publication.title}`}>
+                  <span className="item-year">{publication.year}</span>
+                  <div>
+                    <h3>
+                      {publication.href ? <a href={publication.href}>{publication.title}</a> : publication.title}
+                    </h3>
+                    <p>{publication.authors}</p>
+                    <p><em>{publication.venue}</em></p>
+                    <small>{publication.note}</small>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </section>
 
-          <section id="focus" className="section" aria-labelledby="focus-heading">
-            <div className="section-heading">
-              <p className="section-index">02</p>
-              <h2 id="focus-heading">Current focus</h2>
-            </div>
-            <div className="focus-grid">
-              {profile.focusAreas.map((item) => (
-                <article className="focus-card" key={item.number}>
-                  <span>{item.number}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+          <section id="projects" className="content-section" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
+            <p className="section-intro">A selection of research, software, and applied technology projects.</p>
+            <div className="project-list">
+              {profile.projects.map((project) => (
+                <article key={`${project.period}-${project.title}`}>
+                  <div className="item-meta">
+                    <span>{project.period}</span>
+                    <span className="status">{project.status}</span>
+                  </div>
+                  <h3>{project.href ? <a href={project.href}>{project.title}</a> : project.title}</h3>
+                  <p>{project.description}</p>
                 </article>
               ))}
             </div>
           </section>
 
-          <section id="updates" className="section" aria-labelledby="updates-heading">
-            <div className="section-heading">
-              <p className="section-index">03</p>
-              <h2 id="updates-heading">Recent updates</h2>
-            </div>
-            <div className="updates-list">
-              {profile.updates.map((update) => (
-                <a className="update-item" href={update.href} key={`${update.date}-${update.title}`}>
-                  <time>{update.date}</time>
-                  <span className="update-copy">
-                    <strong>{update.title}</strong>
-                    <span>{update.description}</span>
-                  </span>
-                  <span className="update-arrow" aria-hidden="true">↗</span>
-                </a>
+          <section id="funding" className="content-section" aria-labelledby="funding-heading">
+            <h2 id="funding-heading">Scholarships & Funding</h2>
+            <p className="section-intro">Scholarships, research grants, and funded project experience.</p>
+            <div className="funding-list">
+              {profile.scholarshipsAndFunding.map((item) => (
+                <article key={`${item.year}-${item.title}`}>
+                  <span className="item-year">{item.year}</span>
+                  <div>
+                    <span className="item-type">{item.type}</span>
+                    <h3>{item.title}</h3>
+                    <p className="organization">{item.organization}</p>
+                    <p>{item.description}</p>
+                  </div>
+                </article>
               ))}
             </div>
           </section>
 
-          <section id="contact" className="contact-section" aria-labelledby="contact-heading">
-            <p className="section-label">Have something in mind?</p>
-            <h2 id="contact-heading">Let&apos;s build something useful.</h2>
-            <a href={`mailto:${profile.email}`}>{profile.email} <span aria-hidden="true">↗</span></a>
+          <section className="content-section" aria-labelledby="news-heading">
+            <h2 id="news-heading">Recent News</h2>
+            <ul className="news-list">
+              {profile.news.map((item) => (
+                <li key={`${item.date}-${item.text}`}><strong>{item.date}.</strong> {item.text}</li>
+              ))}
+            </ul>
           </section>
         </div>
       </main>
 
       <footer>
         <p>© {new Date().getFullYear()} {profile.name}</p>
-        <a href="#top">Back to top ↑</a>
+        <a href="#top">Back to top</a>
       </footer>
     </>
   );

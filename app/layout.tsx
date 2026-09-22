@@ -5,12 +5,12 @@ const siteUrl = "https://triubaya.github.io";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Tri Ubaya — Software Engineer & Builder",
+  title: "Tri Ubaya — Software Engineer & Researcher",
   description:
-    "Personal portfolio of Tri Ubaya — selected work, current interests, and notes from an ongoing journey in technology.",
+    "Academic and professional profile of Tri Ubaya — publications, projects, scholarships, and research funding.",
   openGraph: {
-    title: "Tri Ubaya — Software Engineer & Builder",
-    description: "Selected work, current interests, and notes from an ongoing journey in technology.",
+    title: "Tri Ubaya — Software Engineer & Researcher",
+    description: "Publications, projects, scholarships, and research funding.",
     url: siteUrl,
     siteName: "Tri Ubaya",
     type: "website",
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tri Ubaya — Software Engineer & Builder",
-    description: "Selected work, current interests, and notes from an ongoing journey in technology.",
+    title: "Tri Ubaya — Software Engineer & Researcher",
+    description: "Publications, projects, scholarships, and research funding.",
     images: ["/og.png"],
   },
 };

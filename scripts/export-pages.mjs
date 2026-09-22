@@ -21,7 +21,11 @@ const response = await worker.fetch(
 
 if (!response.ok) throw new Error(`Static export failed: ${response.status}`);
 
-await writeFile(resolve(outputDir, "index.html"), await response.text());
+const renderedHtml = await response.text();
+const staticHtml = renderedHtml
+  .replace(/<link rel="modulepreload"[^>]*>/g, "")
+  .replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
+
+await writeFile(resolve(outputDir, "index.html"), staticHtml);
 await writeFile(resolve(outputDir, ".nojekyll"), "");
 console.log(`GitHub Pages export ready: ${outputDir}`);
-
