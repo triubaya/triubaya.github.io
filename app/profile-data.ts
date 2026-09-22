@@ -44,6 +44,14 @@ export const profile = {
       note: "Makalah",
     },
     {
+      year: "Oct 2019",
+      title: "Analysis of Magnetic Field Anomalies Before Earthquakes Based on ULF (Ultra Low Frequency) Method Using Magnetic Sensor Data in Sumatra",
+      authors: "Ade Fika Ramadhani, Syafriani, Rahmat Triyono, Tri Ubaya",
+      venue: "Journal of Physics: Conference Series, 1317(1), 012044",
+      href: "https://doi.org/10.1088/1742-6596/1317/1/012044" as string | null,
+      note: "Journal article · Fourth author",
+    },
+    {
       year: "2019",
       title: "Interpretasi Geologi Bawah Permukaan pada Lapangan “K31–K35” Kawengan Berdasarkan Data Metode Gaya Berat Periode Tahun 2008",
       authors: "Tri Ubaya",
@@ -56,14 +64,6 @@ export const profile = {
       title: "Sistem Informasi Gempa Bumi dan Tsunami yang Terintegrasi dengan SeisComP-3 pada Stasiun Geofisika Padang Panjang",
       authors: "Tri Ubaya",
       venue: "Buletin MKG, Balai Besar BMKG Wilayah 2",
-      href: null as string | null,
-      note: "Jurnal",
-    },
-    {
-      year: "2016",
-      title: "Analysis of Magnetic Field Anomalies Before Earthquakes Based on ULF (Ultra Low Frequency) Method Using Magnetic Sensor Data in Sumatra",
-      authors: "Tri Ubaya",
-      venue: "ICOMSET 2018 — IOP Publishing",
       href: null as string | null,
       note: "Jurnal",
     },
@@ -84,7 +84,7 @@ export const profile = {
       note: "Jurnal — tahun mengikuti data pada gambar",
     },
   ],
-  projects: [
+  projectsAndFunding: [
     {
       period: "2026 — Present",
       title: "-------",
@@ -109,31 +109,29 @@ export const profile = {
       status: "Completed",
       href: null as string | null,
     },
-  ],
-  funding: [
     {
-      year: "2023",
+      period: "2023",
       title: "LPDP Scholarship Awardee",
-      organization: "Indonesia Endowment Fund for Education (LPDP)",
       description:
-        "Master of Data Science at Monash University, Indonesia.",
-      type: "Scholarship",
+        "Indonesia Endowment Fund for Education (LPDP) scholarship for the Master of Data Science program at Monash University, Indonesia.",
+      status: "Scholarship",
+      href: null as string | null,
     },
     {
-      year: "20XX",
+      period: "20XX",
       title: "Funded Research Project",
-      organization: "Funding organization name",
       description:
         "Add the project title, grant scheme, your role, and the relevant funding information.",
-      type: "Research funding",
+      status: "Research funding",
+      href: null as string | null,
     },
     {
-      year: "20XX",
+      period: "20XX",
       title: "Innovation or Community Project Grant",
-      organization: "Funding organization name",
       description:
         "Use this entry for another funded project, institutional grant, or industry collaboration.",
-      type: "Project funding",
+      status: "Project funding",
+      href: null as string | null,
     },
   ],
   news: [

@@ -85,37 +85,18 @@ export default function Home() {
 
           <section id="projects" className="content-section" aria-labelledby="projects-heading">
             <h2 id="projects-heading">Projects & Funding</h2>
-            <h3 className="subsection-heading">Projects</h3>
-            <p className="section-intro">A selection of research, software, and applied technology projects.</p>
+            <p className="section-intro">Projects, scholarships, research grants, and other funded work.</p>
             <div className="project-list">
-              {profile.projects.map((project) => (
-                <article key={`${project.period}-${project.title}`}>
+              {profile.projectsAndFunding.map((item) => (
+                <article key={`${item.period}-${item.title}`}>
                   <div className="item-meta">
-                    <span>{project.period}</span>
-                    <span className="status">{project.status}</span>
+                    <span>{item.period}</span>
+                    <span className="status">{item.status}</span>
                   </div>
-                  <h3>{project.href ? <a href={project.href}>{project.title}</a> : project.title}</h3>
-                  <p>{project.description}</p>
+                  <h3>{item.href ? <a href={item.href}>{item.title}</a> : item.title}</h3>
+                  <p>{item.description}</p>
                 </article>
               ))}
-            </div>
-
-            <div id="funding" className="funding-subsection">
-              <h3 className="subsection-heading">Funding</h3>
-              <p className="section-intro">Scholarships, research grants, and funded project experience.</p>
-            <div className="funding-list">
-              {profile.funding.map((item) => (
-                <article key={`${item.year}-${item.title}`}>
-                  <span className="item-year">{item.year}</span>
-                  <div>
-                    <span className="item-type">{item.type}</span>
-                    <h3>{item.title}</h3>
-                    <p className="organization">{item.organization}</p>
-                    <p>{item.description}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
             </div>
           </section>
 

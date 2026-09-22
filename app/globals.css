@@ -68,16 +68,6 @@ nav a:hover::after { right: 0; }
 .project-list p { margin: 0; color: #625d56; font-size: 14px; }
 .item-meta { display: flex; justify-content: space-between; gap: 18px; color: var(--muted); font-size: 12px; }
 .status { padding: 1px 8px; border-radius: 999px; background: var(--accent-soft); color: #843626; }
-.subsection-heading { margin-top: 26px !important; padding-bottom: 9px; border-bottom: 1px solid var(--line); }
-.funding-subsection { padding-top: 28px; scroll-margin-top: 84px; }
-
-.funding-list { margin-top: 26px; }
-.funding-list article { display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 22px 0; border-top: 1px solid var(--line); }
-.funding-list article:last-child { border-bottom: 1px solid var(--line); }
-.funding-list h3 { margin: 3px 0 4px; font-size: 17px; }
-.funding-list p { margin: 5px 0 0; color: #625d56; font-size: 14px; }
-.funding-list .organization { color: #46423d; font-weight: 600; }
-.item-type { color: var(--link); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
 
 .news-list { margin: 0; padding-left: 21px; }
 .news-list li { margin: 9px 0; padding-left: 4px; font-size: 14px; }
@@ -112,7 +102,7 @@ footer p { margin: 0; }
   .content-section { padding-bottom: 38px; margin-bottom: 38px; }
   .content-section h2 { font-size: 24px; }
   .lead { font-size: 16px; }
-  .publication-list li, .funding-list article { grid-template-columns: 1fr; gap: 5px; }
+  .publication-list li { grid-template-columns: 1fr; gap: 5px; }
   .item-year { font-weight: 600; }
   footer { gap: 20px; }
 }
