@@ -1,18 +1,15 @@
 # Tri Ubaya — Personal Portfolio
 
-A quiet editorial portfolio adapted for clear navigation and comfortable reading.
+A simple academic and professional profile for publications, projects,
+scholarships, and research funding.
 
 ## Update the content
 
-Almost all visible profile content lives in one file:
+Most visible profile content lives in `app/profile-data.ts`. Edit the profile,
+publications, projects, scholarships, funding, news, and social links there.
 
-`app/profile-data.ts`
-
-Edit the name, role, email, introduction, About paragraphs, focus areas, updates,
-and social links there. The page updates automatically while the local preview is running.
-
-The visual design lives in `app/globals.css`, while page structure and section titles
-live in `app/page.tsx`.
+The layout is in `app/page.tsx`, and the visual styling is in
+`app/globals.css`.
 
 ## Local preview
 
@@ -21,16 +18,10 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open the local address printed by the command.
 
 ## Publish to GitHub Pages
 
-The included workflow publishes automatically whenever the `main` branch is pushed.
-
-1. Push this project to the `triubaya/triubaya.github.io` repository.
-2. Open the repository on GitHub.
-3. Go to **Settings → Pages**.
-4. Under **Build and deployment**, choose **GitHub Actions** as the source.
-5. Open the **Actions** tab and wait for “Deploy portfolio to GitHub Pages” to finish.
-
-Future updates only require editing the content, committing it, and pushing to `main`.
+The included GitHub Actions workflow publishes the site whenever `main` is
+pushed. In the repository settings, choose **GitHub Actions** as the GitHub
+Pages publishing source.
