@@ -2,10 +2,10 @@
 export const profile = {
   name: "Tri Ubaya",
   role: "Software Engineer & Researcher",
-  affiliation: "Your institution or organization",
-  location: "Indonesia",
-  email: "hello@triubaya.dev",
-  avatarUrl: "https://github.com/triubaya.png?size=400",
+  affiliation: "BMKG · Monash University Indonesia",
+  location: "Jakarta, Indonesia",
+  emails: ["mr.triubaya@gmail.com", "tri.ubaya@bmkg.go.id"],
+  avatarUrl: "/profile.png",
   introduction:
     "I am a seismology and technology professional at BMKG with a background in Seismology, Information Technology, and Data Science.",
   about: [
@@ -19,6 +19,22 @@ export const profile = {
     "Data Science & AI"
   ],
   publications: [
+    {
+      year: "2026",
+      title: "Nationwide PM2.5 Concentration Prediction in Indonesia Using GRU, GRU-Attention, and BiGRU-Attention Models with Sentinel-5P and ERA5-Land Data",
+      authors: "Lina Adrianti, Tukiyat Tukiyat, Makhsun Makhsun, Tri Ubaya",
+      venue: "International Journal Software Engineering and Computer Science (IJSECS), 6(2), 853–867",
+      href: "https://doi.org/10.35870/ijsecs.v6i2.7488" as string | null,
+      note: "Journal article · Fourth author",
+    },
+    {
+      year: "2025",
+      title: "Empowering End Users in AI-Driven Geospatial Applications for Disaster Risk Reduction: A Series of SatGPT Case Studies",
+      authors: "Sheryl Rose Reyes, Keran Wang, Haiqi Du, et al. — Tri Ubaya (Contributing Author)",
+      venue: "United Nations ESCAP Working Paper",
+      href: "https://hdl.handle.net/20.500.12870/8973" as string | null,
+      note: "Working paper · Contributing author",
+    },
     {
       year: "2020",
       title: "Analisis Pembaruan Point of Interest Sistem Diseminasi Informasi Gempabumi",
@@ -71,7 +87,7 @@ export const profile = {
   projects: [
     {
       period: "2026 — Present",
-      title: "Current Research or Software Project",
+      title: "-------",
       description:
         "A short explanation of the problem, your role, the approach, and the expected outcome of the project.",
       status: "In progress",
@@ -79,7 +95,7 @@ export const profile = {
     },
     {
       period: "2025",
-      title: "Selected Applied Technology Project",
+      title: "-------",
       description:
         "Describe the people or organization served by the project and the most important contribution you made.",
       status: "Completed",
@@ -87,16 +103,16 @@ export const profile = {
     },
     {
       period: "2024",
-      title: "Open-source or Independent Project",
+      title: "-------",
       description:
         "Use this space for a GitHub project, community initiative, prototype, or other work you would like to highlight.",
       status: "Completed",
       href: null as string | null,
     },
   ],
-  scholarshipsAndFunding: [
+  funding: [
     {
-      year: "—",
+      year: "2023",
       title: "LPDP Scholarship Awardee",
       organization: "Indonesia Endowment Fund for Education (LPDP)",
       description:
@@ -126,14 +142,12 @@ export const profile = {
     { date: "Jul 2026", text: "Prepared selected publications and projects for this website." },
   ],
   links: [
-    { label: "Email", href: "mailto:hello@triubaya.dev" },
     { label: "GitHub", href: "https://github.com/triubaya" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/triubaya" },
   ],
   navigation: [
     { label: "About", href: "#about" },
     { label: "Publications", href: "#publications" },
-    { label: "Projects", href: "#projects" },
-    { label: "Scholarships & Funding", href: "#funding" },
+    { label: "Projects & Funding", href: "#projects" },
   ],
 } as const;

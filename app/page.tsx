@@ -31,7 +31,9 @@ export default function Home() {
 
           <ul className="profile-meta">
             <li><span aria-hidden="true">⌖</span>{profile.location}</li>
-            <li><span aria-hidden="true">✉</span><a href={`mailto:${profile.email}`}>{profile.email}</a></li>
+            {profile.emails.map((email) => (
+              <li key={email}><span aria-hidden="true">✉</span><a href={`mailto:${email}`}>{email}</a></li>
+            ))}
           </ul>
 
           <ul className="social-links" aria-label="Profile links">
@@ -82,7 +84,8 @@ export default function Home() {
           </section>
 
           <section id="projects" className="content-section" aria-labelledby="projects-heading">
-            <h2 id="projects-heading">Projects</h2>
+            <h2 id="projects-heading">Projects & Funding</h2>
+            <h3 className="subsection-heading">Projects</h3>
             <p className="section-intro">A selection of research, software, and applied technology projects.</p>
             <div className="project-list">
               {profile.projects.map((project) => (
@@ -96,13 +99,12 @@ export default function Home() {
                 </article>
               ))}
             </div>
-          </section>
 
-          <section id="funding" className="content-section" aria-labelledby="funding-heading">
-            <h2 id="funding-heading">Scholarships & Funding</h2>
-            <p className="section-intro">Scholarships, research grants, and funded project experience.</p>
+            <div id="funding" className="funding-subsection">
+              <h3 className="subsection-heading">Funding</h3>
+              <p className="section-intro">Scholarships, research grants, and funded project experience.</p>
             <div className="funding-list">
-              {profile.scholarshipsAndFunding.map((item) => (
+              {profile.funding.map((item) => (
                 <article key={`${item.year}-${item.title}`}>
                   <span className="item-year">{item.year}</span>
                   <div>
@@ -113,6 +115,7 @@ export default function Home() {
                   </div>
                 </article>
               ))}
+            </div>
             </div>
           </section>
 
